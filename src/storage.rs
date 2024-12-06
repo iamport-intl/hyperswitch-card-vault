@@ -42,7 +42,7 @@ impl Storage {
         schema: &str,
     ) -> error_stack::Result<Self, error::StorageError> {
         let database_url = format!(
-            "postgres://{}:{}@{}:{}/{}?application_name={}&options=-c search_path%3D{}",
+            "postgres://{}:{}@{}:{}/{}?application_name={}&sslmode=require&options=-c search_path%3D{}",
             database.username,
             database.password.peek(),
             database.host,
